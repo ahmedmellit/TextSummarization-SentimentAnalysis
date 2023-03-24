@@ -16,7 +16,7 @@ def main():
   if choice == 'Text Summarization':
     st.subheader("Summarize Document")
     raw_text = st.text_area("Enter Text Here")
-    summarizer_type = st.selectbox("Summarizer Type",["Gensim","TFIDF","TextRank"])
+    summarizer_type = st.selectbox("Summarizer Type",["Gensim","BART"])
     if st.button("Summarize"):
       if summarizer_type == "Gensim":
         summary_result = summarize(raw_text)
