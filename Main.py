@@ -2,7 +2,8 @@ import streamlit as st
 from textblob import TextBlob
 import pandas as pd
 from gensim.summarization import summarize
-import transformers
+import transformers import pipeline
+sentiment_pipeline = pipeline("sentiment-analysis")
 
 
 def main():
@@ -27,16 +28,8 @@ def main():
     with st.expander('Analyze Text'):
         text = st.text_input('Text here: ')
         if text:
-          sent = TextBlob(text)
-
-          if sent.sentiment.polarity > 0:
-            label = 'Positive'
-          if sent.sentiment.polarity < 0:
-            label = 'Negative'
-  
-          st.write('Sentiment: ', label)
-          st.write('Score: ', round(sent.sentiment.polarity,2))
-
+	  st.write('Sentiment: ', sentiment_pipeline(text)['label'])
+          st.write('Score: ', sentiment_pipeline(text)['score'])
 
     with st.expander('Analyze CSV'):
         upl = st.file_uploader('Upload file')
