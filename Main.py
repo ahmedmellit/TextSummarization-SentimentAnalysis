@@ -2,7 +2,7 @@ import streamlit as st
 from textblob import TextBlob
 import pandas as pd
 from gensim.summarization import summarize
-import transformers import pipeline
+from transformers import pipeline
 sentiment_pipeline = pipeline("sentiment-analysis")
 
 
