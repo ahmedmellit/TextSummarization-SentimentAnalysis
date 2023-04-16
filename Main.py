@@ -29,7 +29,7 @@ def main():
     with st.expander('Analyze Text'):
         text = st.text_input('Text here: ')
         if text:
-	  st.write('Sentiment: ', sentiment_pipeline(text)['label'])
+	        st.write('Sentiment: ', sentiment_pipeline(text)['label'])
           st.write('Score: ', sentiment_pipeline(text)['score'])
 
     with st.expander('Analyze CSV'):
